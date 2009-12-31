@@ -1,3 +1,5 @@
+require 'bert/types'
+
 require 'ffi'
 
 module FFI
@@ -35,16 +37,12 @@ module FFI
     attach_function :bert_data_strequal, [:pointer, :string], :int
     attach_function :bert_data_destroy, [:pointer], :void
 
-    callback :bert_read_func, [:pointer, :size_t, :pointer], :ssize_t
-
     attach_function :bert_decoder_create, [], :pointer
     attach_function :bert_decoder_stream, [:pointer, :int], :void
     attach_function :bert_decoder_callback, [:pointer, :bert_read_func, :pointer], :void
     attach_function :bert_decoder_buffer, [:pointer, :pointer, :size_t], :void
     attach_function :bert_decoder_pull, [:pointer, :pointer], :int
     attach_function :bert_decoder_destroy, [:pointer], :void
-
-    callback :bert_write_func, [:pointer, :size_t, :pointer], :ssize_t
 
     attach_function :bert_encoder_create, [], :pointer
     attach_function :bert_encoder_stream, [:pointer, :int], :void
