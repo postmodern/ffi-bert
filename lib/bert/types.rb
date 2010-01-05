@@ -10,6 +10,7 @@ module FFI
     typedef :uint, :time_t
 
     typedef :uint16, :bert_atom_size_t
+    typedef :uint32, :bert_string_size_t
 
     enum :bert_data_type, [
       :bert_data_none,
