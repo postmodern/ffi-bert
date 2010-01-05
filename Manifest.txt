@@ -12,6 +12,7 @@ lib/bert/list_node.rb
 lib/bert/list.rb
 lib/bert/dict_node.rb
 lib/bert/dict.rb
+lib/bert/regex_value.rb
 lib/bert/version.rb
 tasks/spec.rb
 tasks/yard.rb
