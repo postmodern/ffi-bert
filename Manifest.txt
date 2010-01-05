@@ -10,6 +10,8 @@ lib/bert/string_value.rb
 lib/bert/bin_value.rb
 lib/bert/list_node.rb
 lib/bert/list.rb
+lib/bert/dict_node.rb
+lib/bert/dict.rb
 lib/bert/version.rb
 tasks/spec.rb
 tasks/yard.rb
