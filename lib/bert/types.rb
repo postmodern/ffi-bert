@@ -7,6 +7,8 @@ module FFI
     typedef :uint, :size_t
     typedef :int, :ssize_t
 
+    typedef :uint, :time_t
+
     callback :bert_read_func, [:pointer, :size_t, :pointer], :ssize_t
     callback :bert_write_func, [:pointer, :size_t, :pointer], :ssize_t
   end
