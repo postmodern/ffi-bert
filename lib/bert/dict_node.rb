@@ -1,3 +1,5 @@
+require 'bert/data'
+
 require 'ffi'
 
 module FFI
@@ -7,6 +9,14 @@ module FFI
       layout :key, :pointer,
              :value, :pointer,
              :next, :pointer
+
+      def key
+        Data.new(self[:key])
+      end
+
+      def value
+        Data.new(self[:value])
+      end
 
       def next
         ptr = self[:next]
