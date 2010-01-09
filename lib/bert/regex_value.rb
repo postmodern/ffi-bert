@@ -10,6 +10,10 @@ module FFI
              :data, :pointer,
              :options, :int
 
+      def to_s
+        self[:data].get_bytes(self[:length])
+      end
+
     end
   end
 end
