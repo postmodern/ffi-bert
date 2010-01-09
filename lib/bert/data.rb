@@ -145,6 +145,50 @@ module FFI
         self[:type]
       end
 
+      def boolean
+        self[:values][:boolean] if type == :bert_data_boolean
+      end
+
+      def integer
+        self[:values][:integer] if type == :bert_data_int
+      end
+
+      def float
+        self[:values][:floating_point] if type == :bert_data_float
+      end
+
+      def atom
+        self[:values][:atom] if type == :bert_data_atom
+      end
+
+      def string
+        self[:values][:string] if type == :bert_data_string
+      end
+
+      def bin
+        self[:values][:bin] if type == :bert_data_bin
+      end
+
+      def tuple
+        self[:values][:tuple] if type == :bert_data_tuple
+      end
+
+      def list
+        self[:values][:list] if type == :bert_data_list
+      end
+
+      def dict
+        self[:values][:dict] if type == :bert_data_dict
+      end
+
+      def time
+        self[:values][:time] if type == :bert_data_time
+      end
+
+      def regex
+        self[:values][:regex] if type == :bert_data_regex
+      end
+
     end
   end
 end
