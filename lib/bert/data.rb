@@ -141,6 +141,10 @@ module FFI
         return Data.new(ptr)
       end
 
+      def type
+        self[:type]
+      end
+
     end
   end
 end
