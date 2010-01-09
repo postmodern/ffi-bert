@@ -17,6 +17,7 @@ lib/bert/dict.rb
 lib/bert/regex_value.rb
 lib/bert/data_values.rb
 lib/bert/data.rb
+lib/bert/encoder.rb
 lib/bert/version.rb
 tasks/spec.rb
 tasks/yard.rb
