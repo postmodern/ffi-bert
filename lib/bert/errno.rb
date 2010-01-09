@@ -31,12 +31,16 @@ module FFI
         BERT.bert_strerror(code.to_i)
       end
 
-      def raise_error(code)
+      def Errno.raise_error(code)
         code = code.to_i
 
         if (excp = Errno::EXCEPTIONS[code])
           raise(excp,Errno.strerror(code),caller)
         end
+      end
+
+      def raise_error(code)
+        Errno.raise_error(code)
       end
 
       def catch_error(&block)
