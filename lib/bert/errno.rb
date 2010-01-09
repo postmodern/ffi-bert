@@ -14,8 +14,29 @@ module FFI
       INVALID = -1
       SUCCESS = 0
 
+      EXCEPTIONS = {
+        MAX => RuntimeError,
+        BIGNUM => StandardError,
+        MALLOC => RuntimeError,
+        WRITE => SystemCallError,
+        READ => SystemCallError,
+        SHORT_WRITE => RuntimeError,
+        SHORT_READ => RuntimeError,
+        EMPTY => RuntimeError,
+        INVALID => RuntimeError,
+        SUCCESS => nil
+      }
+
       def Errno.strerror(code)
         BERT.bert_strerror(code.to_i)
+      end
+
+      def Errno.raise_error(code)
+        code = code.to_i
+
+        if (excp = EXCEPTIONS[code])
+          raise(excp,Errno.strerror(code),caller)
+        end
       end
     end
   end
