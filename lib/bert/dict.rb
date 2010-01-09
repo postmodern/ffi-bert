@@ -36,6 +36,16 @@ module FFI
         return self
       end
 
+      def to_hash
+        new_hash = {}
+
+        each do |key,value|
+          new_hash[key.to_ruby] = value.to_ruby
+        end
+
+        return new_hash
+      end
+
     end
   end
 end
