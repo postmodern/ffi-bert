@@ -14,6 +14,10 @@ module FFI
         self[:data].get_bytes(self[:length])
       end
 
+      def to_regexp
+        Regexp.new(self.to_s,self[:options])
+      end
+
     end
   end
 end
