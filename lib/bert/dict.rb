@@ -7,6 +7,7 @@ module FFI
   module BERT
     class Dict < FFI::Struct
 
+      include Enumerable
       include Errno
 
       layout :head, :pointer,
@@ -18,6 +19,20 @@ module FFI
         end
 
         return value
+      end
+
+      def each(&block)
+        head_ptr = self[:head]
+        return self if head_ptr.null?
+
+        next_node = DictNode.new(head_ptr)
+
+        while next_node
+          block.call(next_node.key,next_node.value) if block
+          next_node = next_node.next
+        end
+
+        return self
       end
 
     end
