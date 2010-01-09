@@ -38,6 +38,16 @@ module FFI
           raise(excp,Errno.strerror(code),caller)
         end
       end
+
+      def catch_error(&block)
+        result = block.call()
+
+        unless result == Errno::SUCCESS
+          raise_error(result)
+        end
+
+        return result
+      end
     end
   end
 end
