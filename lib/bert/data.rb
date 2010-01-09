@@ -251,6 +251,10 @@ module FFI
         end
       end
 
+      def destroy!
+        BERT.bert_data_destroy(self)
+      end
+
     end
   end
 end
