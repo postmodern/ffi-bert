@@ -11,7 +11,7 @@ module FFI
 
       def Data.create_nil()
         unless (ptr = BERT.bert_data_create_nil())
-          raise(RuntimeError,"malloc failed")
+          raise(RuntimeError,"malloc failed",caller)
         end
 
         return Data.new(ptr)
@@ -25,7 +25,7 @@ module FFI
               end
 
         unless ptr
-          raise(RuntimeError,"malloc failed")
+          raise(RuntimeError,"malloc failed",caller)
         end
 
         return Data.new(ptr)
@@ -35,7 +35,7 @@ module FFI
         integer = integer.to_i
 
         unless (ptr = BERT.bert_data_create_int(integer))
-          raise(RuntimeError,"malloc failed")
+          raise(RuntimeError,"malloc failed",caller)
         end
 
         return Data.new(ptr)
@@ -45,7 +45,7 @@ module FFI
         floating_point = floating_point.to_f
 
         unless (ptr = BERT.bert_data_create_float(floating_point))
-          raise(RuntimeError,"malloc failed")
+          raise(RuntimeError,"malloc failed",caller)
         end
 
         return Data.new(ptr)
@@ -55,7 +55,7 @@ module FFI
         name = name.to_s
 
         unless (ptr = BERT.bert_data_create_atom(name))
-          raise(RuntimeError,"malloc failed")
+          raise(RuntimeError,"malloc failed",caller)
         end
 
         return Data.new(ptr)
@@ -69,7 +69,7 @@ module FFI
                end
 
         unless (ptr = BERT.bert_data_create_string(text))
-          raise(RuntimeError,"malloc failed")
+          raise(RuntimeError,"malloc failed",caller)
         end
 
         return Data.new(ptr)
@@ -77,7 +77,7 @@ module FFI
 
       def Data.create_tuple(length)
         unless (ptr = BERT.bert_data_create_tuple(length))
-          raise(RuntimeError,"malloc failed")
+          raise(RuntimeError,"malloc failed",caller)
         end
 
         return Data.new(ptr)
@@ -85,7 +85,7 @@ module FFI
 
       def Data.create_list()
         unless (ptr = BERT.bert_data_create_list())
-          raise(RuntimeError,"malloc failed")
+          raise(RuntimeError,"malloc failed",caller)
         end
 
         return Data.new(ptr)
@@ -93,7 +93,7 @@ module FFI
 
       def Data.create_dict()
         unless (ptr = BERT.bert_data_create_dict())
-          raise(RuntimeError,"malloc failed")
+          raise(RuntimeError,"malloc failed",caller)
         end
 
         return Data.new(ptr)
@@ -109,7 +109,7 @@ module FFI
         end
 
         unless (ptr = BERT.bert_data_create_time(time.to_i))
-          raise(RuntimeError,"malloc failed")
+          raise(RuntimeError,"malloc failed",caller)
         end
 
         return Data.new(ptr)
@@ -121,7 +121,7 @@ module FFI
         options = options.to_i
 
         unless (ptr = BERT.bert_data_create_regex(source,source.length,options))
-          raise(RuntimeError,"malloc failed")
+          raise(RuntimeError,"malloc failed",caller)
         end
 
         return Data.new(ptr)
@@ -135,7 +135,7 @@ module FFI
                end
 
         unless (ptr = BERT.bert_data_create_bin(data,data.length))
-          raise(RuntimeError,"malloc failed")
+          raise(RuntimeError,"malloc failed",caller)
         end
 
         return Data.new(ptr)
