@@ -13,6 +13,10 @@ module FFI
         self[:text].get_bytes(self[:length])
       end
 
+      def bytes
+        self[:text].get_bytes(self[:length])
+      end
+
       alias to_s text
 
     end
