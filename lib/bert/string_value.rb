@@ -9,6 +9,12 @@ module FFI
       layout :length, :bert_string_size_t,
              :text, :string
 
+      def text
+        self[:text].get_bytes(self[:length])
+      end
+
+      alias to_s text
+
     end
   end
 end
