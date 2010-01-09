@@ -49,6 +49,7 @@ module FFI
     attach_function :bert_encoder_buffer, [:pointer, :pointer, :size_t], :void
     attach_function :bert_encoder_callback, [:pointer, :bert_write_func, :pointer], :void
     attach_function :bert_encoder_push, [:pointer, :pointer], :int
+    attach_function :bert_encoder_total, [], :size_t
     attach_function :bert_encoder_destroy, [:pointer], :void
   end
 end
