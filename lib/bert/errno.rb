@@ -43,14 +43,12 @@ module FFI
         Errno.raise_error(code)
       end
 
-      def catch_error(&block)
-        result = block.call()
-
-        unless result == Errno::SUCCESS
-          raise_error(result)
+      def catch_error(code)
+        unless code == Errno::SUCCESS
+          Errno.raise_error(code)
         end
 
-        return result
+        return code
       end
     end
   end
