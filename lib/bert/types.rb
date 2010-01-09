@@ -14,6 +14,7 @@ module FFI
     typedef :uint32, :bert_bin_size_t
     typedef :bert_bin_size_t, :bert_regex_size_t
     typedef :uint32, :bert_tuple_size_t
+    typedef :uint32, :bert_list_size_t
 
     enum :bert_data_type, [
       :bert_data_none,
