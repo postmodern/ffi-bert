@@ -14,7 +14,7 @@ module FFI
       end
 
       def bytes
-        self[:data].get_bytes(self[:length])
+        self[:data].get_array_of_uint8(0,self[:length])
       end
 
       alias to_s data
