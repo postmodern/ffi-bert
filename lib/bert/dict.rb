@@ -1,5 +1,6 @@
 require 'bert/dict_node'
 require 'bert/errno'
+require 'bert/ffi'
 
 require 'ffi'
 
