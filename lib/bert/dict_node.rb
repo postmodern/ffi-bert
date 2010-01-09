@@ -8,6 +8,12 @@ module FFI
              :value, :pointer,
              :next, :pointer
 
+      def next
+        ptr = self[:next]
+
+        return DictNode.new(ptr) unless ptr.null?
+      end
+
     end
   end
 end
