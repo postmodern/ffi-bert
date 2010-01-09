@@ -101,11 +101,7 @@ module FFI
 
       def Data.create_time(time)
         if time.kind_of?(Date)
-          unless time.respond_to?(:to_time)
-            raise(StandardError,"cannot convert Date into Time, Date#to_time method required",caller)
-          end
-
-          time = time.to_time
+          time = Time.utc(time.year,time.month,time.day)
         end
 
         unless (ptr = BERT.bert_data_create_time(time.to_i))
