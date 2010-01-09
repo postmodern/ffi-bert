@@ -42,6 +42,7 @@ module FFI
     attach_function :bert_decoder_callback, [:pointer, :bert_read_func, :pointer], :void
     attach_function :bert_decoder_buffer, [:pointer, :pointer, :size_t], :void
     attach_function :bert_decoder_pull, [:pointer, :pointer], :int
+    attach_function :bert_decoder_total, [], :size_t
     attach_function :bert_decoder_destroy, [:pointer], :void
 
     attach_function :bert_encoder_create, [], :pointer
