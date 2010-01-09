@@ -15,6 +15,10 @@ module FFI
         end
       end
 
+      def to_a
+        elements.map { |data| data.to_ruby }
+      end
+
     end
   end
 end
