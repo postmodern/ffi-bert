@@ -4,6 +4,7 @@ README.rdoc
 Rakefile
 lib/bert.rb
 lib/bert/types.rb
+lib/bert/errno.rb
 lib/bert/ffi.rb
 lib/bert/atom_value.rb
 lib/bert/string_value.rb
