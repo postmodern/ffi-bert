@@ -137,6 +137,37 @@ module FFI
         return Data.new(ptr)
       end
 
+      def Date.from_ruby(obj)
+        case obj.class
+        when Hash
+          Data.create_dict()
+          # TODO: append the elements of the Hash to the dict
+        when Array
+          Data.create_tuple(obj)
+          # TODO: set the elements of the tuple
+        when Regexp
+          Data.create_regex(obj)
+        when Symbol
+          Data.create_atom(obj)
+        when String
+          Data.create_string(obj)
+        when Time, Date
+          Data.create_time(obj)
+        when Float
+          Data.create_float(obj)
+        when Integer
+          Data.create_integer(obj)
+        when TrueClass
+          Data.create_boolean(true)
+        when FalseClass
+          Data.create_boolean(false)
+        when NilClass
+          Data.create_nil()
+        else
+          raise(RuntimeError,"cannot convert #{obj.class} to BERT data",caller)
+        end
+      end
+
       def type
         self[:type]
       end
@@ -183,6 +214,41 @@ module FFI
 
       def regex
         self[:values][:regex] if type == :bert_data_regex
+      end
+
+      def to_ruby
+        case type
+        when :bert_data_boolean
+          if self.boolean == 1
+            true
+          else
+            false
+          end
+        when :bert_data_integer
+          self.integer
+        when :bert_data_float
+          self.float
+        when :bert_data_atom
+          self.atom.to_s
+        when :bert_data_string
+          self.string.to_s
+        when :bert_data_tuple
+          self.tuple.to_a
+        when :bert_data_list
+          self.list.to_a
+        when :bert_data_dict
+          self.dict.to_hash
+        when :bert_data_bin
+          self.bin.to_s
+        when :bert_data_time
+          Time.at(self.time)
+        when :bert_data_regex
+          self.self.regex.to_regexp
+        when :bert_data_nil
+          nil
+        else
+          raise(RuntimeError,"unknown bert_data_type #{type}",caller)
+        end
       end
 
     end
