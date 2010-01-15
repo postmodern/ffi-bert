@@ -10,7 +10,7 @@ module FFI
              :name, :string
 
       def name
-        self[:name].get_bytes(self[:length])
+        self[:name]
       end
 
       alias to_s name
