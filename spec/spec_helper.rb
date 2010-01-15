@@ -5,4 +5,3 @@ require 'spec'
 require 'bert/version'
 
 include FFI
-include FFI::BERT
