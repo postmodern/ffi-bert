@@ -140,12 +140,12 @@ module FFI
       end
 
       def Data.from_ruby(obj)
-        case obj.class
+        case obj
         when Hash
           Data.create_dict()
           # TODO: append the elements of the Hash to the dict
         when Array
-          Data.create_tuple(obj)
+          Data.create_list()
           # TODO: set the elements of the tuple
         when Regexp
           Data.create_regex(obj)
@@ -158,7 +158,7 @@ module FFI
         when Float
           Data.create_float(obj)
         when Integer
-          Data.create_integer(obj)
+          Data.create_int(obj)
         when TrueClass
           Data.create_boolean(true)
         when FalseClass
