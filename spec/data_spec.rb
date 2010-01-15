@@ -230,11 +230,10 @@ describe BERT::Data do
     end
 
     it "should allow setting tuple values" do
-       pending 'find/fix double-free Segfault'
-#      @data.tuple[1] = BERT::Data.create_int(2)
+      @data.tuple[1] = BERT::Data.create_int(2)
 
-#      @data.tuple[1].type.should == :int
-#      @data.tuple[1].integer.should == 2
+      @data.tuple[1].type.should == :int
+      @data.tuple[1].integer.should == 2
     end
 
     it "should be able to converted to ruby" do
