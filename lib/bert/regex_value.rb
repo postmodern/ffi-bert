@@ -10,12 +10,14 @@ module FFI
              :data, :pointer,
              :options, :int
 
-      def to_s
-        self[:data].get_bytes(self[:length])
+      def source
+        self[:data].get_bytes(0,self[:length])
       end
 
+      alias to_s source
+
       def to_regexp
-        Regexp.new(self.to_s,self[:options])
+        Regexp.new(source,self[:options])
       end
 
     end
