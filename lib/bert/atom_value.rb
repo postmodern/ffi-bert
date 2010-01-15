@@ -7,10 +7,10 @@ module FFI
     class AtomValue < FFI::Struct
 
       layout :length, :bert_atom_size_t,
-             :name, :string
+             :name, :pointer
 
       def name
-        self[:name]
+        self[:name].get_bytes(0,self[:length])
       end
 
       alias to_s name
