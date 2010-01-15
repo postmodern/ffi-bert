@@ -14,14 +14,6 @@ module FFI
         BERT.bert_encoder_destroy(ptr)
       end
 
-      def Encoder.create
-        unless (ptr = BERT.bert_encoder_create())
-          Errno.raise_error(Errno::MALLOC)
-        end
-
-        return Encoder.new(ptr)
-      end
-
       def Encoder.buffer(length,&block)
         encoder = Encoder.create
         buffer = FFI::Buffer.new(length)
@@ -65,6 +57,16 @@ module FFI
 
       def to_ptr
         @ptr
+      end
+
+      protected
+
+      def Encoder.create
+        unless (ptr = BERT.bert_encoder_create())
+          Errno.raise_error(Errno::MALLOC)
+        end
+
+        return Encoder.new(ptr)
       end
 
     end
