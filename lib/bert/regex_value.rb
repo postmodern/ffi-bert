@@ -14,10 +14,14 @@ module FFI
         self[:data].get_bytes(0,self[:length])
       end
 
+      def options
+        self[:options]
+      end
+
       alias to_s source
 
       def to_regexp
-        Regexp.new(source,self[:options])
+        Regexp.new(source,options)
       end
 
     end
