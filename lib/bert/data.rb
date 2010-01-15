@@ -150,7 +150,7 @@ module FFI
           obj.each { |element| data.list << Data.from_ruby(element) }
           return data
         when Regexp
-          Data.create_regex(obj)
+          Data.create_regex(obj.source,obj.options)
         when Symbol
           Data.create_atom(obj)
         when String
