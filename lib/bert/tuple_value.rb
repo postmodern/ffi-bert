@@ -1,4 +1,5 @@
 require 'bert/types'
+require 'bert/ffi'
 
 require 'ffi'
 
@@ -33,6 +34,9 @@ module FFI
       def []=(key,value)
         if key.kind_of?(Integer)
           if (key >= 0 && key < self[:length])
+            ptr = self[:elements].get_pointer(key)
+            BERT.bert_data_destroy(ptr) unless ptr.null?
+
             return self[:elements].put_pointer(key,value)
           end
         else
