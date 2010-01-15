@@ -14,6 +14,10 @@ module FFI
       layout :head, :pointer,
              :tail, :pointer
 
+      def length
+        BERT.bert_list_length(self)
+      end
+
       def each(&block)
         head_ptr = self[:head]
         return self if head_ptr.null?
