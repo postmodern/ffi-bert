@@ -36,6 +36,10 @@ module FFI
         return self
       end
 
+      def empty?
+        self[:head].null?
+      end
+
       def to_hash
         new_hash = {}
 
