@@ -28,6 +28,25 @@ module FFI
         return self
       end
 
+      def [](key)
+        if key.kind_of?(Integer)
+          ptr = BERT.bert_list_get(self,key)
+          return Data.new(ptr) unless ptr.null?
+        else
+          return super(key)
+        end
+      end
+
+      def []=(key,value)
+        if key.kind_of?(Integer)
+          if BERT.bert_list_set(key,value) == 1
+            return value
+          end
+        else
+          return super(key,value)
+        end
+      end
+
       def <<(data)
         if BERT.bert_list_append(self,data) == Errno::MALLOC
           raise_error(Errno::MALLOC)
@@ -41,7 +60,10 @@ module FFI
       end
 
       def to_a
-        Enumerator.new(self,:each).to_a
+        array = []
+
+        each { |data| array << data }
+        return array
       end
 
     end
