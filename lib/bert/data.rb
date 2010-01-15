@@ -139,7 +139,7 @@ module FFI
         return Data.new(ptr)
       end
 
-      def Date.from_ruby(obj)
+      def Data.from_ruby(obj)
         case obj.class
         when Hash
           Data.create_dict()
