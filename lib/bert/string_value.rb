@@ -7,10 +7,10 @@ module FFI
     class StringValue < FFI::Struct
 
       layout :length, :bert_string_size_t,
-             :text, :string
+             :text, :pointer
 
       def text
-        self[:text].get_bytes(self[:length])
+        self[:text].get_bytes(0,self[:length])
       end
 
       def bytes
