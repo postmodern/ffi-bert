@@ -227,11 +227,7 @@ module FFI
       def to_ruby
         case type
         when :boolean
-          if self.boolean == 1
-            true
-          else
-            false
-          end
+          self.boolean
         when :integer
           self.integer
         when :float
