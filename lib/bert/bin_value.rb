@@ -10,7 +10,7 @@ module FFI
              :data, :pointer
 
       def data
-        self[:data].get_bytes(self[:length])
+        self[:data].get_bytes(0,self[:length])
       end
 
       def bytes
