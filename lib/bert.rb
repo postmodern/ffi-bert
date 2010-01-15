@@ -1,1 +1,5 @@
+require 'bert/ffi'
+require 'bert/extensions'
+require 'bert/data'
+require 'bert/encoder'
 require 'bert/version'
