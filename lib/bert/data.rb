@@ -1,3 +1,4 @@
+require 'bert/extensions/tuple'
 require 'bert/data_values'
 
 require 'ffi'
@@ -144,10 +145,21 @@ module FFI
         when Hash
           Data.create_dict()
           # TODO: append the elements of the Hash to the dict
+        when Tuple
+          data = Data.create_tuple(obj.length)
+
+          obj.each_with_index do |element,index|
+            data.tuple[index] = Data.from_ruby(element)
+          end
+
+          return data
         when Array
           data = Data.create_list()
 
-          obj.each { |element| data.list << Data.from_ruby(element) }
+          obj.each do |element|
+            data.list << Data.from_ruby(element)
+          end
+
           return data
         when Regexp
           Data.create_regex(obj.source,obj.options)
@@ -233,7 +245,7 @@ module FFI
         when :string
           self.string.to_s
         when :tuple
-          self.tuple.to_a
+          ::Tuple.new(self.tuple.to_a)
         when :list
           self.list.to_a
         when :dict
