@@ -233,7 +233,7 @@ module FFI
         when :float
           self.float
         when :atom
-          self.atom.to_s
+          self.atom.to_sym
         when :string
           self.string.to_s
         when :tuple
