@@ -15,6 +15,10 @@ module FFI
 
       alias to_s name
 
+      def to_sym
+        name.to_sym
+      end
+
     end
   end
 end
