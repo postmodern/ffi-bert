@@ -5,7 +5,7 @@ require 'ffi'
 
 module FFI
   module BERT
-    class TupleValue < FFI::Struct
+    class Tuple < FFI::Struct
 
       layout :length, :bert_tuple_size_t,
              :elements, :pointer

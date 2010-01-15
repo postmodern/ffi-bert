@@ -9,7 +9,7 @@ lib/bert/ffi.rb
 lib/bert/atom_value.rb
 lib/bert/string_value.rb
 lib/bert/bin_value.rb
-lib/bert/tuple_value.rb
+lib/bert/tuple.rb
 lib/bert/list_node.rb
 lib/bert/list.rb
 lib/bert/dict_node.rb

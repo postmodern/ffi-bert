@@ -1,7 +1,7 @@
 require 'bert/atom_value'
 require 'bert/string_value'
 require 'bert/bin_value'
-require 'bert/tuple_value'
+require 'bert/tuple'
 require 'bert/list'
 require 'bert/dict'
 require 'bert/regex_value'
@@ -19,7 +19,7 @@ module FFI
              :atom, AtomValue,
              :string, StringValue,
              :bin, BinValue,
-             :tuple, TupleValue,
+             :tuple, :pointer,
              :list, :pointer,
              :dict, :pointer,
              :time, :time_t,
@@ -54,7 +54,9 @@ module FFI
       end
 
       def tuple
-        self[:tuple]
+        ptr = self[:tuple]
+
+        return Tuple.new(ptr) unless ptr.null?
       end
 
       def list
