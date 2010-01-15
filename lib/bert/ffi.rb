@@ -12,6 +12,11 @@ module FFI
 
     attach_function :bert_strerror, [:int], :string
 
+    attach_function :bert_tuple_create, [:bert_tuple_size_t], :pointer
+    attach_function :bert_tuple_get, [:pointer, :uint], :pointer
+    attach_function :bert_tuple_set, [:pointer, :uint, :pointer], :pointer
+    attach_function :bert_tuple_destroy, [:pointer], :void
+
     attach_function :bert_list_create, [], :pointer
     attach_function :bert_list_append, [:pointer, :pointer], :int
     attach_function :bert_list_get, [:pointer, :uint], :pointer

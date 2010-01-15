@@ -22,10 +22,8 @@ module FFI
 
       def [](key)
         if key.kind_of?(Integer)
-          if (key >= 0 && key < self[:length])
-            ptr = self[:elements].get_pointer(key)
-            return Data.new(ptr) unless ptr.null?
-          end
+          ptr = BERT.bert_tuple_get(self,key)
+          return Data.new(ptr) unless ptr.null?
         else
           return super(key)
         end
@@ -33,11 +31,8 @@ module FFI
 
       def []=(key,value)
         if key.kind_of?(Integer)
-          if (key >= 0 && key < self[:length])
-            ptr = self[:elements].get_pointer(key)
-            BERT.bert_data_destroy(ptr) unless ptr.null?
-
-            return self[:elements].put_pointer(key,value)
+          if BERT.bert_tuple_set(self,key,value) == 1
+            return value
           end
         else
           return super(key,value)
