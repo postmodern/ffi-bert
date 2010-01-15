@@ -228,7 +228,7 @@ module FFI
         case type
         when :boolean
           self.boolean
-        when :integer
+        when :int
           self.integer
         when :float
           self.float
