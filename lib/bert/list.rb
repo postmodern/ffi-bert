@@ -36,6 +36,10 @@ module FFI
         return self
       end
 
+      def empty?
+        self[:head].null?
+      end
+
       def to_a
         Enumerator.new(self,:each).to_a
       end
