@@ -175,53 +175,47 @@ module FFI
       end
 
       def boolean
-        if type == :boolean
-          if self[:values][:boolean] == 1
-            return true
-          else
-            return false
-          end
-        end
+        self[:values].boolean if type == :boolean
       end
 
       def integer
-        self[:values][:integer] if type == :int
+        self[:values].integer if type == :int
       end
 
       def float
-        self[:values][:floating_point] if type == :float
+        self[:values].floating_point if type == :float
       end
 
       def atom
-        self[:values][:atom] if type == :atom
+        self[:values].atom if type == :atom
       end
 
       def string
-        self[:values][:string] if type == :string
+        self[:values].string if type == :string
       end
 
       def bin
-        self[:values][:bin] if type == :bin
+        self[:values].bin if type == :bin
       end
 
       def tuple
-        self[:values][:tuple] if type == :tuple
+        self[:values].tuple if type == :tuple
       end
 
       def list
-        self[:values][:list] if type == :list
+        self[:values].list if type == :list
       end
 
       def dict
-        self[:values][:dict] if type == :dict
+        self[:values].dict if type == :dict
       end
 
       def time
-        self[:values][:time] if type == :time
+        self[:values].time if type == :time
       end
 
       def regex
-        self[:values][:regex] if type == :regex
+        self[:values].regex if type == :regex
       end
 
       def to_ruby

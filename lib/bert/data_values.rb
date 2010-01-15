@@ -25,6 +25,38 @@ module FFI
              :time, :time_t,
              :regex, RegexValue
 
+      def boolean
+        if self[:boolean] == 1
+          return true
+        else
+          return false
+        end
+      end
+
+      def integer
+        self[:integer]
+      end
+
+      def floating_point
+        self[:floating_point]
+      end
+
+      def atom
+        self[:atom]
+      end
+
+      def string
+        self[:string]
+      end
+
+      def bin
+        self[:bin]
+      end
+
+      def tuple
+        self[:tuple]
+      end
+
       def list
         ptr = self[:list]
 
@@ -35,6 +67,14 @@ module FFI
         ptr = self[:dict]
 
         return Dict.new(ptr) unless ptr.null?
+      end
+
+      def time
+        self[:time]
+      end
+
+      def regex
+        self[:regex]
       end
 
     end
