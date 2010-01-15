@@ -9,6 +9,10 @@ module FFI
       layout :length, :bert_tuple_size_t,
              :elements, :pointer
 
+      def length
+        self[:length]
+      end
+
       def elements
         self[:elements].get_array_of_pointer(0,self[:length]).map do |ptr|
           Data.new(ptr) unless ptr.null?
