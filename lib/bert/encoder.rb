@@ -2,12 +2,16 @@ require 'bert/errno'
 
 module FFI
   module BERT
-    class Encoder
+    class Encoder < FFI::ManagedStruct
 
       include Errno
 
       def initialize(ptr)
         @ptr = ptr
+      end
+
+      def self.release(ptr)
+        BERT.bert_encoder_destroy(ptr)
       end
 
       def Encoder.create
