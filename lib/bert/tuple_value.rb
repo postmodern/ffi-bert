@@ -45,7 +45,7 @@ module FFI
       end
 
       def to_a
-        elements.map { |data| data.to_ruby }
+        elements.map { |data| data.to_ruby if data }
       end
 
     end
