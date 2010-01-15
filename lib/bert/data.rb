@@ -145,8 +145,10 @@ module FFI
           Data.create_dict()
           # TODO: append the elements of the Hash to the dict
         when Array
-          Data.create_list()
-          # TODO: set the elements of the tuple
+          data = Data.create_list()
+
+          obj.each { |element| data.list << Data.from_ruby(element) }
+          return data
         when Regexp
           Data.create_regex(obj)
         when Symbol
