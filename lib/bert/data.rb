@@ -175,7 +175,13 @@ module FFI
       end
 
       def boolean
-        self[:values][:boolean] if type == :boolean
+        if type == :boolean
+          if self[:values][:boolean] == 1
+            return true
+          else
+            return false
+          end
+        end
       end
 
       def integer
