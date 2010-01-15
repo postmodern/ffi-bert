@@ -20,10 +20,22 @@ module FFI
              :string, StringValue,
              :bin, BinValue,
              :tuple, TupleValue,
-             :list, List,
-             :dict, Dict,
+             :list, :pointer,
+             :dict, :pointer,
              :time, :time_t,
              :regex, RegexValue
+
+      def list
+        ptr = self[:list]
+
+        return List.new(ptr) unless ptr.null?
+      end
+
+      def dict
+        ptr = self[:dict]
+
+        return Dict.new(ptr) unless ptr.null?
+      end
 
     end
   end
