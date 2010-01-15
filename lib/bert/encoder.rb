@@ -41,6 +41,10 @@ module FFI
         return nil
       end
 
+      def length
+        BERT.bert_encoder_total(self)
+      end
+
       def push(data)
         catch_error BERT.bert_encoder_push(self,data)
         return self
