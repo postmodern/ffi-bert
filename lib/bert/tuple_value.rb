@@ -11,7 +11,7 @@ module FFI
 
       def elements
         self[:elements].get_array_of_pointer(0,self[:length]).map do |ptr|
-          Data.new(ptr)
+          Data.new(ptr) unless ptr.null?
         end
       end
 
