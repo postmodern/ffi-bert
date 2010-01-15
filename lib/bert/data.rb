@@ -247,7 +247,7 @@ module FFI
         when :time
           Time.at(self.time)
         when :regex
-          self.self.regex.to_regexp
+          self.regex.to_regexp
         when :nil
           nil
         else
