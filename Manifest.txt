@@ -22,4 +22,5 @@ lib/bert/version.rb
 tasks/spec.rb
 tasks/yard.rb
 spec/spec_helper.rb
+spec/data_spec.rb
 spec/bert_spec.rb
