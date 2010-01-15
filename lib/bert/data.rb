@@ -175,78 +175,78 @@ module FFI
       end
 
       def boolean
-        self[:values][:boolean] if type == :bert_data_boolean
+        self[:values][:boolean] if type == :boolean
       end
 
       def integer
-        self[:values][:integer] if type == :bert_data_int
+        self[:values][:integer] if type == :int
       end
 
       def float
-        self[:values][:floating_point] if type == :bert_data_float
+        self[:values][:floating_point] if type == :float
       end
 
       def atom
-        self[:values][:atom] if type == :bert_data_atom
+        self[:values][:atom] if type == :atom
       end
 
       def string
-        self[:values][:string] if type == :bert_data_string
+        self[:values][:string] if type == :string
       end
 
       def bin
-        self[:values][:bin] if type == :bert_data_bin
+        self[:values][:bin] if type == :bin
       end
 
       def tuple
-        self[:values][:tuple] if type == :bert_data_tuple
+        self[:values][:tuple] if type == :tuple
       end
 
       def list
-        self[:values][:list] if type == :bert_data_list
+        self[:values][:list] if type == :list
       end
 
       def dict
-        self[:values][:dict] if type == :bert_data_dict
+        self[:values][:dict] if type == :dict
       end
 
       def time
-        self[:values][:time] if type == :bert_data_time
+        self[:values][:time] if type == :time
       end
 
       def regex
-        self[:values][:regex] if type == :bert_data_regex
+        self[:values][:regex] if type == :regex
       end
 
       def to_ruby
         case type
-        when :bert_data_boolean
+        when :boolean
           if self.boolean == 1
             true
           else
             false
           end
-        when :bert_data_integer
+        when :integer
           self.integer
-        when :bert_data_float
+        when :float
           self.float
-        when :bert_data_atom
+        when :atom
           self.atom.to_s
-        when :bert_data_string
+        when :string
           self.string.to_s
-        when :bert_data_tuple
+        when :tuple
           self.tuple.to_a
-        when :bert_data_list
+        when :list
           self.list.to_a
-        when :bert_data_dict
+        when :dict
           self.dict.to_hash
-        when :bert_data_bin
+        when :bin
           self.bin.to_s
-        when :bert_data_time
+        when :time
           Time.at(self.time)
-        when :bert_data_regex
+        when :regex
           self.self.regex.to_regexp
-        when :bert_data_nil
+        when :nil
           nil
         else
           raise(RuntimeError,"unknown bert_data_type #{type}",caller)

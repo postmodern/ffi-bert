@@ -17,19 +17,19 @@ module FFI
     typedef :uint32, :bert_list_size_t
 
     enum :bert_data_type, [
-      :bert_data_none,
-      :bert_data_boolean,
-      :bert_data_int,
-      :bert_data_float,
-      :bert_data_atom,
-      :bert_data_string,
-      :bert_data_tuple,
-      :bert_data_list,
-      :bert_data_dict,
-      :bert_data_bin,
-      :bert_data_time,
-      :bert_data_regex,
-      :bert_data_nil
+      :none,
+      :boolean,
+      :int,
+      :float,
+      :atom,
+      :string,
+      :tuple,
+      :list,
+      :dict,
+      :bin,
+      :time,
+      :regex,
+      :nil
     ]
 
     callback :bert_read_func, [:pointer, :size_t, :pointer], :ssize_t
