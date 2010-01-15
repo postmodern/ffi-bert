@@ -15,6 +15,27 @@ module FFI
         end
       end
 
+      def [](key)
+        if key.kind_of?(Integer)
+          if (key >= 0 && key < self[:length])
+            ptr = self[:elements].get_pointer(key)
+            return Data.new(ptr) unless ptr.null?
+          end
+        else
+          return super(key)
+        end
+      end
+
+      def []=(key,value)
+        if key.kind_of?(Integer)
+          if (key >= 0 && key < self[:length])
+            return self[:elements].put_pointer(key,value)
+          end
+        else
+          return super(key,value)
+        end
+      end
+
       def to_a
         elements.map { |data| data.to_ruby }
       end
