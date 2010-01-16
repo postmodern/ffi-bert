@@ -10,7 +10,23 @@ data.
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+* Supports encoding/decoding of:
+  * Integers.
+  * Floating point numbers.
+  * Atoms.
+  * Strings.
+  * Binary data.
+  * Tuples.
+  * Lists.
+  * Complex types:
+    * Nil.
+    * Boolean True and False values.
+    * Dictionaries.
+    * Time values.
+    * Regular Expressions.
+* Supports buffered, streaming or callback-based reading/writing of
+  BERT data.
+* Supports converting between BERT data and Ruby native objects.
 
 == REQUIREMENTS:
 
