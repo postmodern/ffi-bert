@@ -166,7 +166,13 @@ module FFI
         when Symbol
           Data.create_atom(obj)
         when String
-          Data.create_string(obj)
+          if obj =~ /[\x00-\x1f\x7f]/
+            # if the string contains control-characters it should be
+            # treated as binary data
+            return Data.create_bin(obj)
+          else
+            return Data.create_string(obj)
+          end
         when Time, Date
           Data.create_time(obj)
         when Float
