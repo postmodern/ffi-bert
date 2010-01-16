@@ -1,6 +1,8 @@
 = ffi-bert
 
 * http://github.com/postmodern/ffi-bert
+* http://github.com/postmodern/ffi-bert/issues
+* http://github.com/postmodern/libBERT/issues
 * Postmodern (postmodern.mod3 at gmail.com)
 
 == DESCRIPTION:
