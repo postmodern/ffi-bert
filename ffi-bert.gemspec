@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.md",
     "Rakefile",
+    "ffi-bert.gemspec",
     "lib/bert.rb",
     "lib/bert/atom_value.rb",
     "lib/bert/bin_value.rb",

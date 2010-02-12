@@ -5,7 +5,7 @@ require './lib/bert/version.rb'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = 'parameters'
+    gem.name = 'ffi-bert'
     gem.version = FFI::BERT::VERSION
     gem.summary = %Q{FFI bindings to libBERT.}
     gem.description = %Q{FFI bindings to libBERT, a library for the encoding and decoding of BERT data.}
