@@ -5,12 +5,12 @@
 * [github.com/postmodern/libBERT/issues](http://github.com/postmodern/libBERT/issues)
 * Postmodern (postmodern.mod3 at gmail.com)
 
-## DESCRIPTION:
+## Description
 
 FFI bindings to libBERT, a library for the encoding and decoding of BERT
 data.
 
-## FEATURES/PROBLEMS:
+## Features
 
 * Supports encoding/decoding of:
   * Integers.
@@ -30,16 +30,16 @@ data.
   BERT data.
 * Supports converting between BERT data and Ruby native objects.
 
-## REQUIREMENTS:
+## Requirements
 
 * [libBERT](http://github.com/postmodern/libBERT) >= 0.1.0
 * [ffi](http://github.com/ffi/ffi) >= 0.6.0
 
-## INSTALL:
+## Install
 
     $ sudo gem install ffi-bert
 
-## LICENSE:
+## License
 
 See {file:LICENSE.txt} for license information.
 
